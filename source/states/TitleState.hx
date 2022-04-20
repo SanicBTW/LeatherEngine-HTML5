@@ -273,10 +273,12 @@ class TitleState extends MusicBeatState
 		else
 			titleTextData = CoolUtil.coolTextFile(Paths.txt("titleText", "preload"));
 
+		//have to look into why its crashing
+		skipIntro();
+		/*
 		if (initialized)
-			skipIntro();
 		else
-			initialized = true;
+			initialized = true;*/
 	}
 
 	function getIntroTextShit():Array<Array<String>>
