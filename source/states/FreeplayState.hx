@@ -70,7 +70,7 @@ class FreeplayState extends MusicBeatState
 		var loadText = 'Loading songs, please wait';
 		
 		var black = new FlxSprite().makeGraphic(FlxG.width, FlxG.height, FlxColor.BLACK);
-		var warning = new FlxText(0, 0, 0, loadText, 32);
+		var warning = new FlxText(100, 100, 0, loadText, 32);
 
 		#if NO_PRELOAD_ALL
 		if(!songsReady)
