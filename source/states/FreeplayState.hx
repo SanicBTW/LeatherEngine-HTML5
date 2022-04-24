@@ -67,8 +67,10 @@ class FreeplayState extends MusicBeatState
 	override function create()
 	{
 		MusicBeatState.windowNameSuffix = " Freeplay";
+		var loadText = 'Loading songs, please wait';
 		
 		var black = new FlxSprite().makeGraphic(FlxG.width, FlxG.height, FlxColor.BLACK);
+		var warning = new FlxText(0, 0, 0, loadText, 32);
 
 		#if NO_PRELOAD_ALL
 		if(!songsReady)
@@ -81,9 +83,11 @@ class FreeplayState extends MusicBeatState
 						remove(black);
 						black.kill();
 						black.destroy();
+						remove(warning);
+						warning.kill();
+						warning.destroy();
 					}
 				});
-	
 				songsReady = true;
 			});
 		}
@@ -185,10 +189,14 @@ class FreeplayState extends MusicBeatState
 		if(!songsReady)
 		{
 			add(black);
+			add(warning);
 		} else {
 			remove(black);
 			black.kill();
 			black.destroy();
+			remove(warning);
+			warning.kill();
+			warning.destroy();
 
 			songsReady = false;
 
